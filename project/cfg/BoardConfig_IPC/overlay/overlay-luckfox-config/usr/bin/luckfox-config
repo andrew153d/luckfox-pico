@@ -121,7 +121,7 @@ function luckfox_pico_pro_max_pin_diagram_file() {
  PWM9_M1  - UART4_M1_TX   - GPIO1_C5 |       | NC       -             -
  PWM8_M1  - UART4_M1_RX   - GPIO1_C4 |       | GPIO2_A7 - I2C3_M0_SDA -
           -               -      GND |       | GND      -             -
- PWM0_M1  - I2C3_M1_SDA   - GPIO1_D2 |       | GPIO4_C1 - SARADC_M1   -
+ PWM0_M1  - SPI0_M0_CS1   - GPIO1_D2 |       | GPIO4_C1 - SARADC_M1   -
  PWM11_M2 - I2C3_M1_SCL   - GPIO1_D3 |       | GPIO4_C0 - SARADC_M0   -
  PWM6_M1  - I2C1_M1_SDA   - GPIO2_B1 |       | RESET    -             -
  PWM2_M2  - SPI0_M0_CS0   - GPIO1_C0 |       | GPIO2_A6 - I2C3_M0_SCL -
