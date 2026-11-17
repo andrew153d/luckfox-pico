@@ -1,0 +1,33 @@
+#!/bin/sh
+
+# Path to the nrfnet binary
+NRFNET_BINARY="/usr/bin/nrfnet"
+
+# Redirect output to a log file
+LOG_FILE="/etc/nrfnet/nrfnet.log"
+
+# Function to start nrfnet and monitor its status
+start_nrfnet() {
+    while true; do
+        echo "Starting nrfnet..." | tee -a "$LOG_FILE"
+        $NRFNET_BINARY > "$LOG_FILE" 2>&1
+        EXIT_CODE=$?
+        echo "nrfnet exited with code $EXIT_CODE. Restarting..." | tee -a "$LOG_FILE"
+        sleep 2
+    done
+}
+
+case "$1" in
+    start)
+        echo "Starting nrfnet monitoring..."
+        start_nrfnet &
+        ;;
+    stop)
+        echo "Stopping nrfnet monitoring..."
+        killall nrfnet
+        ;;
+    *)
+        echo "Usage: $0 {start|stop}"
+        exit 1
+        ;;
+esac
